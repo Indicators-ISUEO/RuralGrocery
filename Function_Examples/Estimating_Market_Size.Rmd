@@ -1,0 +1,98 @@
+
+
+# Functions
+
+Below are the functions used to calculate the test variables.
+```{r}
+source(file = "New_R/Quadrant_Area.R")
+source(file = "New_R/County_Pct.R")
+source(file = "New_R/Market_Populations.R")
+source(file = "New_R/Shopper_Populations.R")
+```
+
+# Testing
+
+## Test Variables
+```{r}
+# Testing variables for all county cities and non-county cities in the market area
+
+## County square mileage
+Decatur_SqMiles <- 373.3
+
+## County total population
+Decatur_Total_Pop <- 7659
+
+## County cities population list
+county_cities <- list(Davis_City = 179, 
+                      Decatur_City = 175,
+                      Garden_Grove = 174,
+                      Grand_River = 196,
+                      Lamoni = 1969,
+                      Leon = 1822,
+                      Le_Roy = 11,
+                      Pleasanton = 32,
+                      Van_Wert = 178,
+                      Weldon = 136)
+
+## Non-County cities population list
+non_county_cities <- list(town1 = 254,
+                          town2 = 135,
+                          town3 = 576,
+                          town4 = 1256,
+                          town5 = 895)
+
+# Shopper Count Percentages
+## Metro
+m_prime_pct <- 50
+m_second_pct <- 40
+m_rare_pct <- 10
+
+## Rural
+r_prime_pct <- 30
+r_second_pct <- 50
+r_rare_pct <- 20
+
+## Town
+t_prime_pct <- 30
+t_second_pct <- 50
+t_rare_pct <- 20
+
+```
+
+# Test Function Calls
+```{r}
+## List of market area values
+Area_List <- Quadrant_Area(north_distance = 25, 
+                           west_distance = 13, 
+                           east_distance = 12, 
+                           south_distance = 9)
+
+## Percent of county area covered by market area
+County_Percentage <- County_Pct(county_area = Decatur_SqMiles,
+                                market_total_area = Area_List$market_total_area)
+
+## Population Values
+Populations_List <- Market_Populations(metro_pop = county_cities[[1]], # assuming metro pop is first city in list
+                   county_pop = Decatur_Total_Pop, 
+                   county_cities = county_cities, # this is the full list of county cities
+                   non_county_cities = non_county_cities, # this is the full list of non-county cities
+                   county_pct = County_Percentage)
+
+Shoppers_List <- Shopper_Populations(populations_list = Populations_List, 
+                                     
+                                     metro_primary_pct = m_prime_pct, 
+                                     metro_secondary_pct = m_second_pct, 
+                                     metro_rare_pct = m_rare_pct,
+                                     
+                                     town_primary_pct = t_prime_pct, 
+                                     town_secondary_pct = t_second_pct, 
+                                     town_rare_pct = t_rare_pct,
+                                     
+                                     rural_primary_pct = r_prime_pct, 
+                                     rural_secondary_pct = r_second_pct, 
+                                     rural_rare_pct = r_rare_pct)
+```
+
+
+
+

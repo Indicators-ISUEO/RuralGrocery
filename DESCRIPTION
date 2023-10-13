@@ -1,0 +1,17 @@
+Package: RuralGrocery
+Type: Package
+Title: A Package Hosting Calculations to Generate an Income Statement for Rural 
+    Grocery Store Operations
+Version: 0.1.0
+Author: Harun Celik
+Maintainer: Harun Celik <hcelik@iastate.edu>
+Description: This package holds the R version of calculations created by the FFED program
+    at Iowa State University for generating income statements about potential rural grocery
+    store operations. This package provides the calculations used in the RuralGrocery Shiny
+    application.
+License: Apache License (>= 2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Imports: 
+    R.oo

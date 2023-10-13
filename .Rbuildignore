@@ -1,0 +1,6 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+Function_Examples
+renv
+^LICENSE\.md$
+^README\.Rmd$

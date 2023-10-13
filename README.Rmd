@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# RuralGrocery
+
+<!-- badges: start -->
+![](https://img.shields.io/badge/-Under%20Development-yellow)
+<!-- badges: end -->
+
+The goal of RuralGrocery is to provide an R based tool to help users with decision-making
+for opening up a grocery store in a rural environment. The tool itself is an R Shiny app
+which uses the functions from the DSPGrocery package to generate market size, 
+estimated revenue, expenses and other demographic information.
+
+## Installation
+
+You can install the development version of RuralGrocery from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("Indicators-ISUEO/RuralGrocery")
+```
+
+## Background
+
+The R Shiny tool and the RuralGrocery package are designed as alternative interfaces to an Excel tool
+developed by the ISU Extension and Outreach Farm, Food and Enterprise Development Program. The Excel
+workbooks are divided into the following three sections.
+
+ - Estimating Market Size
+ - Estimating Revenue
+ - Estimating Expenses
+ 
+These correspond to the articles in the vignette sections documenting how each of the excel tools were first converted into R functions and later updated to suit the needs of the R Shiny interface. Those articles can be found in the `Articles` tab on the navigation bar.

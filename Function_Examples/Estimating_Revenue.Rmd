@@ -1,0 +1,63 @@
+---
+title: "Estimating Revenue"
+author: "Harun Celik"
+date: "2023-09-25"
+output: html_document
+---
+
+# Functions
+
+Below are the functions used to calculate the test variables.
+```{r}
+source(file = "New_R/Adj_Per_Cap_Spend.R")
+source(file = "New_R/Total_Revenue.R")
+```
+
+# Testing
+
+## Testing Variables
+```{r, eval=FALSE}
+# Both of the following calculations are different ways for calculating the Average Grocery Per Capita Spending.
+
+# Calculations based on IBIS World
+US_Grocery_Sales_2022 <- 811541000000
+US_Total_Pop <- 334233854
+Avg_Grocery_Per_Capita <- round(US_Grocery_Sales_2022 / US_Total_Pop, digits = 2)
+
+# Calculations based on Vertical IQ
+US_Households_2022 <- 131200000
+Avg_Household_Size_2022 <- round(US_Total_Pop / US_Households_2022, digits = 2)
+
+Avg_Weekly_Household_Spend <- 120
+Avg_Annual_Household_Spend <- 120 * 52
+Avg_Grocery_Per_Capita_Spend <- round(Avg_Annual_Household_Spend / Avg_Household_Size_2022, digits = 2)
+
+
+# Calculating the Avg Grocery Spending Per Capita adjusted for the CPI.
+Cumulative_Price_Inc <- 5 
+Adjusted_CPI <- round(((1 + (Cumulative_Price_Inc/100)) * Avg_Grocery_Per_Capita), digits = 2)
+
+# Percentages of Spending by Shopper Categories
+primary_pct <- 60
+secondary_pct <- 25
+rare_pct <- 5
+```
+
+## Testing Functions
+
+```{r}
+Adjusted_List <- Adj_Per_Cap_Spend(Cumulative_Price_Inc = 5, 
+                                   State_Index = 95.8)
+
+Total_Rev_List <- Total_Revenue(Adjusted_Per_Capita = Adjusted_List$Adjusted_CPI_State,
+                                Primary_Pct = primary_pct,
+                                Secondary_Pct = secondary_pct,
+                                Rare_Pct = rare_pct, 
+                                Primary_Shoppers = 1472,
+                                Secondary_Shoppers = 2376,
+                                Rare_Shoppers = 940)
+```
+
+
+
+
