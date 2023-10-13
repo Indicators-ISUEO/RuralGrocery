@@ -1,14 +1,9 @@
-
-
-# Functions
-
-Below are the functions used to calculate the test variables.
-```{r}
-source(file = "New_R/Quadrant_Area.R")
-source(file = "New_R/County_Pct.R")
-source(file = "New_R/Market_Populations.R")
-source(file = "New_R/Shopper_Populations.R")
-```
+---
+title: "Estimating Market Size"
+author: "Harun Celik"
+date: "2023-09-25"
+output: html_document
+---
 
 # Testing
 
