@@ -49,5 +49,7 @@ Adj_Per_Cap_Spend <- function(Total_Grocery_Sales = 811541000000,
 
   Adjusted_Grocery_Spend_List <- list(Avg_Grocery_Per_Capita = Avg_Grocery_Per_Capita,
                                       Adjusted_CPI_US = Adjusted_CPI_US,
-                                      Adjusted_CPI_State = Adjusted_CPI_State)
+                                      Adjusted_CPI_State = Adjusted_CPI_State,
+                                      Total_Grocery_Sales = Total_Grocery_Sales,
+                                      Total_Pop = Total_Pop)
 }
