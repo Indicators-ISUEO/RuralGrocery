@@ -27,9 +27,9 @@ Market_Populations <-  function(county_pct, metro_pop, county_pop, county_cities
   # Calculating the rural population for the market. #
 
   ## Calculate total rural population
-  total_rural_pop <- (county_pop - county_cities_pop)
+  total_rural_pop <- (county_pop - (county_cities_pop + non_county_cities_pop))
   ## Multiply the county percentage with the total rural population
-  market_rural_pop <- round(total_rural_pop * county_pct)
+  market_rural_pop <- floor(total_rural_pop * county_pct)
 
   # Calculating the town population (metro + market rural pop + non county cities)
   total_market_pop <- (metro_pop + market_rural_pop + non_county_cities_pop)
