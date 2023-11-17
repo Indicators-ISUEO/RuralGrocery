@@ -17,9 +17,10 @@ Decatur_SqMiles <- 373.3
 ## County total population
 Decatur_Total_Pop <- 7659
 
+metro_city <- 179
+
 ## County cities population list
-county_cities <- list(Davis_City = 179, 
-                      Decatur_City = 175,
+county_cities <- list(Decatur_City = 175,
                       Garden_Grove = 174,
                       Grand_River = 196,
                       Lamoni = 1969,
@@ -32,9 +33,7 @@ county_cities <- list(Davis_City = 179,
 ## Non-County cities population list
 non_county_cities <- list(town1 = 254,
                           town2 = 135,
-                          town3 = 576,
-                          town4 = 1256,
-                          town5 = 895)
+                          town3 = 576)
 
 # Shopper Count Percentages
 ## Metro
@@ -67,7 +66,7 @@ County_Percentage <- County_Pct(county_area = Decatur_SqMiles,
                                 market_total_area = Area_List$market_total_area)
 
 ## Population Values
-Populations_List <- Market_Populations(metro_pop = county_cities[[1]], # assuming metro pop is first city in list
+Populations_List <- Market_Populations(metro_pop = metro_city,
                    county_pop = Decatur_Total_Pop, 
                    county_cities = county_cities, # this is the full list of county cities
                    non_county_cities = non_county_cities, # this is the full list of non-county cities
