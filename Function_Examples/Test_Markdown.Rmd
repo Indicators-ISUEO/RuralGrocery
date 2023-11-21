@@ -1,0 +1,31 @@
+
+```{r}
+library(RuralGrocery)
+```
+
+```{r}
+metro = 750
+county_towns = list(town1 = 1500, town2 = 1500, town3 = 2000) # Sum should be 5000
+non_county_towns = list(ntown1 = 100, ntown2 = 200, ntown3 = 200) # Sum should be 500
+
+county_pop = 7000
+county_sqmiles = 300 
+
+```
+
+```{r}
+market_pct <- Quadrant_Area(12,12,12,12) # market_total_area should be 113
+
+county_pct <- County_Pct(county_area = county_sqmiles, market_total_area = market_pct$market_total_area) # Should equal to .377
+
+populations <- Market_Populations(county_pct = county_pct,
+                                  county_pop = county_pop,
+                                  metro_pop = metro, 
+                                  county_cities = county_towns, 
+                                  non_county_cities = non_county_towns) 
+```
+
+```{r}
+populations # These are the values that should come out
+```
+
