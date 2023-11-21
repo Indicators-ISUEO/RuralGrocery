@@ -22,7 +22,7 @@ populations <- Market_Populations(county_pct = county_pct,
                                   county_pop = county_pop,
                                   metro_pop = metro, 
                                   county_cities = county_towns, 
-                                  non_county_cities = non_county_towns) 
+                                  non_county_cities = 0) 
 ```
 
 ```{r}
