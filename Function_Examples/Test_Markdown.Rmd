@@ -3,6 +3,7 @@
 library(RuralGrocery)
 ```
 
+# Market Size Testing
 ```{r}
 metro = 750
 county_towns = list(town1 = 1500, town2 = 1500, town3 = 2000) # Sum should be 5000
@@ -22,10 +23,37 @@ populations <- Market_Populations(county_pct = county_pct,
                                   county_pop = county_pop,
                                   metro_pop = metro, 
                                   county_cities = county_towns, 
-                                  non_county_cities = 0) 
+                                  non_county_cities = non_county_towns) 
 ```
 
 ```{r}
 populations # These are the values that should come out
+```
+
+# Estimated Revenue Testing
+
+```{r}
+primary_pct = 60
+secondary_pct = 25
+rare_pct = 5
+```
+
+
+```{r}
+Adjusted_List <- Adj_Per_Cap_Spend(Cumulative_Price_Inc = 5, 
+                                   State_Index = 95.8)
+
+Total_Rev_List <- Total_Revenue(Adjusted_Per_Capita = Adjusted_List$Adjusted_CPI_State,
+                                Primary_Pct = primary_pct,
+                                Secondary_Pct = secondary_pct,
+                                Rare_Pct = rare_pct, 
+                                Primary_Shoppers = 610,
+                                Secondary_Shoppers = 691,
+                                Rare_Shoppers = 231)
+```
+
+```{r}
+Adjusted_List # Expected Values to Return
+Total_Rev_List
 ```
 
