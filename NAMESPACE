@@ -2,8 +2,11 @@
 
 export(Adj_Per_Cap_Spend)
 export(County_Pct)
+export(Depreciation)
+export(Interest)
 export(Market_Populations)
 export(Quadrant_Area)
+export(Rent)
 export(Shopper_Populations)
 export(Total_Revenue)
 importFrom(R.oo,throw)
