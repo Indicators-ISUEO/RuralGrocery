@@ -9,6 +9,54 @@ output: html_document
 
 ## Test Variables
 ```{r}
+# The calculations for expenses take data frames and return data frames
+depreciation <-
+    data.frame(
+      id = c(
+        "building_remodeling",
+        "leasehold_improvements",
+        "parking_lot_improvements",
+        "shelving",
+        "equipments",
+        "vehicle",
+        "display_cases",
+        "refrigeration",
+        "freezers",
+        "meat_cutting_equipment",
+        "amortization_start_up_cost",
+        "miscellaneous_1",
+        "miscellaneous_2",
+        "miscellaneous_3"
+      ),
+      life = c(39, 15, 15, 15, 5, 5, 15, 15, 15, 12, 15, 0, 0, 0),
+      cost = c(1000, 1000, 650, 500, 500, 750, 800, 500, 550, 625, 800, 0, 0, 0),
+      annual_cost = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    )
 
+rent <-
+    data.frame(
+      id = c("building_rent", "other_rent1", "other_rent2"),
+      rent = c(1400, 500, 0),
+      annual_cost = c(0, 0, 0)
+    )
+
+interest <- data.frame(
+    id = c("loan_1", "loan_2", "loan_3"),
+    loan = c(5000, 2000, 600),
+    interest = c(7, 3, 0.5),
+    calculated_interest = c(0, 0, 0)
+  )
 ```
+
+```{r}
+Depreciation_List <- Depreciation(scenario = "two", depreciation_table = depreciation)
+
+Rent_List <- Rent(rent_table = rent)
+
+Interest_List <- Interest(interest_table = interest)
+```
+
+
+
+
 
