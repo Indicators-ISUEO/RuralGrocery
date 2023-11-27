@@ -46,6 +46,18 @@ interest <- data.frame(
     interest = c(7, 3, 0.5),
     calculated_interest = c(0, 0, 0)
   )
+
+
+expenses <- data.frame(
+  id = c("cost_of_goods", 
+         "gross_margin", 
+         "officer_compensation", 
+         "salaries",
+         "other_operating_expense", 
+         "operating_income_loss"),
+  pct = c(2, 5, 8, 12, 2, 1.5),
+  pct_value = c(0, 0, 0, 0, 0, 0)
+)
 ```
 
 ```{r}
@@ -54,6 +66,8 @@ Depreciation_List <- Depreciation(scenario = "two", depreciation_table = depreci
 Rent_List <- Rent(rent_table = rent)
 
 Interest_List <- Interest(interest_table = interest)
+
+Expense_List <- Expense(expense_table = expenses, total_estimated_revenue = 1400000)
 ```
 
 

@@ -3,6 +3,7 @@
 export(Adj_Per_Cap_Spend)
 export(County_Pct)
 export(Depreciation)
+export(Expense)
 export(Interest)
 export(Market_Populations)
 export(Quadrant_Area)

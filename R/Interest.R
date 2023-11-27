@@ -14,7 +14,7 @@ Interest <- function(interest_table) {
 
   interest_table$calculated_interest <- (interest_table$loan * interest_table$interest)
 
-  total_interest <- sum(interest_table$calculated_interest, na.rm = T)
+  total_interest <- sum(interest_table$calculated_interest, interest_table$loan, na.rm = T)
 
   Interest_List <- list(interest_table = interest_table,
                         total_interest = total_interest)
