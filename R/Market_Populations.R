@@ -39,7 +39,7 @@ Market_Populations <-  function(county_pct, metro_pop, county_pop, county_cities
   Populations_List <- list(metro_pop = metro_pop,
                            rural_market_pop = market_rural_pop,
                            non_county_cities_pop = non_county_cities_pop,
-                           total_market_pop = total_market_pop
+                           total_market_pop = total_market_pop,
                            total_town_pop = total_town_pop)
 
   return(Populations_List)
