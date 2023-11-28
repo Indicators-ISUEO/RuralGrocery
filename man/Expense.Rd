@@ -4,18 +4,30 @@
 \alias{Expense}
 \title{Returns Expense Calculations for Estimating Total Costs}
 \usage{
-Expense(total_estimated_revenue, expense_table)
+Expense(
+  total_estimated_revenue,
+  expense_table,
+  total_depreciation,
+  total_rent,
+  total_interest
+)
 }
 \arguments{
 \item{total_estimated_revenue}{the total estimated revenue calculated in the revenue estimation}
 
 \item{expense_table}{a data frame containing percentages to be used to calculate the cost values for expenses}
+
+\item{total_depreciation}{total depreciation value calculated in [Depreciation]}
+
+\item{total_rent}{total rent value calculated in [Rent]}
+
+\item{total_interest}{total interest value calculated in [Interest]}
 }
 \description{
 Calculates the expense values for the Cost of Goods Sold, Gross Margin,
 Officer Compensation, Salaries, Rent, Other Operating Expense, Depreciation,
 Total Expense, Operating Income/(Loss), Interest Expense, Other Income,
-Pre-Tax Net Profit/(Loss)
+Pre-Tax Net Profit/(Loss).
 }
 \author{
 Harun Celik
