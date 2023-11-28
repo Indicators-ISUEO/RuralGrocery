@@ -81,6 +81,11 @@ Expense <- function(total_estimated_revenue,
                                    expense_table$value[which(expense_table$id == "other_income")])
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
+
+  # Round pct and values to two decimal points
+  expense_table$pct <- round(expense_table$pct, 2)
+  expense_table$value <- round(expense_table$value, 2)
+
   return(expense_table)
 
 }
