@@ -57,3 +57,85 @@ Adjusted_List # Expected Values to Return
 Total_Rev_List
 ```
 
+# Expenses and Pre-tax Profit Calculation
+## Data Frames for Input Values
+```{r}
+depreciation <-
+    data.frame(
+      id = c(
+        "building_remodeling",
+        "leasehold_improvements",
+        "parking_lot_improvements",
+        "shelving",
+        "equipments",
+        "vehicle",
+        "display_cases",
+        "refrigeration",
+        "freezers",
+        "meat_cutting_equipment",
+        "amortization_start_up_cost",
+        "miscellaneous_1",
+        "miscellaneous_2",
+        "miscellaneous_3"
+      ),
+      life = c(39, 15, 15, 15, 5, 5, 15, 15, 15, 12, 15, 0, 0, 0),
+      cost = c(3000, 1000, 650, 500, 500, 750, 800, 500, 550, 625, 800, 0, 0, 0),
+      annual_cost = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    )
+
+rent <-
+    data.frame(
+      id = c("building_rent", "other_rent1", "other_rent2"),
+      rent = c(2500, 500, 0),
+      annual_cost = c(0, 0, 0)
+    )
+
+interest <- data.frame(
+    id = c("loan_1", "loan_2", "loan_3"),
+    loan = c(5000, 2000, 600),
+    interest = c(3, 3, 0.5),
+    calculated_interest = c(0, 0, 0)
+  )
+
+
+expenses <- data.frame(
+  id = c("gross_margin", # Rev * Pct (default = [22, 24, 26, or 28])
+         "officer_compensation",  # Rev * Pct
+         "salaries", # Rev * Pct (default = 9)
+         "other_operating_expense", # Rev * Pct (default = 10.88)
+         "other_income", # Rev * Pct (Default = 1) [this value REDUCES expense]
+         
+         # HIDE THE TABLE BELOW THIS POINT - USER INPUTS ONLY ABOVE FOR `PCT` COLUMN #
+         
+         "cost_of_goods", # Rev - Gross Margin 
+         "rent", # total_rent calculated in Rent()
+         "depreciation", # total_depreciation calculated in Depreciation()
+         "interest_expense", # total_interest calculated in Interest()
+         "total_expense", # off_comp + salaries + rent + other_op_exp + depreciation
+         "operating_income_loss", # Gross Margin -  Total Expense
+         "pre_tax_profit" # operating income loss - Interest Expense + Other Income
+         ),
+  pct = c(22, 4, 9, 10.88, 1, 0, 0, 0, 0, 0, 0, 0),
+  value = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+)
+```
+
+```{r}
+Depreciation_List <- Depreciation(scenario = "two", depreciation_table = depreciation)
+
+Rent_List <- Rent(rent_table = rent)
+
+Interest_List <- Interest(interest_table = interest)
+
+Expense_Table <- Expense(expense_table = expenses, 
+                        total_estimated_revenue = 1400000,
+                        total_depreciation = Depreciation_List$total_depreciation, 
+                        total_rent = Rent_List$total_rent,
+                        total_interest = Interest_List$total_interest)
+
+```
+
+```{r}
+Expense_Table # Expected Values
+```
+
