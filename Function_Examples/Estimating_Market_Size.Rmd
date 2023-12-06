@@ -32,8 +32,9 @@ county_cities <- list(Decatur_City = 175,
 
 ## Non-County cities population list
 non_county_cities <- list(town1 = 254,
-                          town2 = 135,
-                          town3 = 576)
+                          town2 = 135)
+
+county_market_cities <- list(town1 = 576)
 
 # Shopper Count Percentages
 ## Metro
@@ -70,6 +71,7 @@ Populations_List <- Market_Populations(metro_pop = metro_city,
                    county_pop = Decatur_Total_Pop, 
                    county_cities = county_cities, # this is the full list of county cities
                    non_county_cities = non_county_cities, # this is the full list of non-county cities
+                   county_market_cities = county_market_cities,
                    county_pct = County_Percentage)
 
 Shoppers_List <- Shopper_Populations(populations_list = Populations_List, 
