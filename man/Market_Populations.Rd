@@ -9,6 +9,7 @@ Market_Populations(
   metro_pop,
   county_pop,
   county_cities,
+  county_market_cities,
   non_county_cities
 )
 }
