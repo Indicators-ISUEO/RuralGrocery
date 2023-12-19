@@ -17,7 +17,6 @@
 Market_Populations <-  function(county_pct, metro_pop, county_pop, county_cities, county_market_cities, non_county_cities) {
 
   # Sum the list of county and non-county cities #
-  browser()
   ## Take the sum of all the county cities
   county_cities_pop <- Reduce("+", county_cities)
   ## Take the sum of all the in county AND in market cities
