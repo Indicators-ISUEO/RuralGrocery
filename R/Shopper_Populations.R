@@ -34,9 +34,9 @@ Shopper_Populations <- function(populations_list,
   rare_rural <- (populations_list$rural_market_pop * rural_rare_pct)/100
 
   ## Calculating town populations
-  primary_town <- (populations_list$non_county_cities_pop * town_primary_pct)/100
-  secondary_town <- (populations_list$non_county_cities_pop * town_secondary_pct)/100
-  rare_town <- (populations_list$non_county_cities_pop * town_rare_pct)/100
+  primary_town <- (populations_list$market_cities_pop * town_primary_pct)/100
+  secondary_town <- (populations_list$market_cities_pop * town_secondary_pct)/100
+  rare_town <- (populations_list$market_cities_pop * town_rare_pct)/100
 
   ## Calculating primary, secondary, rare totals
   primary_total <- (primary_metro + primary_town + primary_rural)
