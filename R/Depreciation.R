@@ -20,7 +20,7 @@ Depreciation <- function(scenario, depreciation_table) {
 
   # Scenario One: Building is owned by business that is operating the store.
   if (scenario == "one") {
-    filtered_depreciation <- depreciation_table[!(depreciation$id %in% "leasehold_improvements"), ]
+    filtered_depreciation <- depreciation_table[!(depreciation_table$id %in% "leasehold_improvements"), ]
 
     filtered_depreciation$annual_cost <- (filtered_depreciation$cost / filtered_depreciation$life)
 
@@ -34,7 +34,7 @@ Depreciation <- function(scenario, depreciation_table) {
 
   # Scenario Two: Building owned by a third party and periodic rent is paid.
   if (scenario == "two") {
-    filtered_depreciation <- depreciation_table[!(depreciation$id %in% c("building_remodeling", "parking_lot_improvements")), ]
+    filtered_depreciation <- depreciation_table[!(depreciation_table$id %in% c("building_remodeling", "parking_lot_improvements")), ]
 
     filtered_depreciation$annual_cost <- (filtered_depreciation$cost / filtered_depreciation$life)
 
