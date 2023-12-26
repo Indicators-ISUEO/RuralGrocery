@@ -40,27 +40,27 @@ Expense <- function(total_estimated_revenue,
   # Calculate remaining expenses from values in filtered_expense
 
   ## Cost of Goods
-  index <- which(expenses$id == "cost_of_goods")
+  index <- which(expense_table$id == "cost_of_goods")
   expense_table$value[index] <- total_estimated_revenue - expense_table$value[which(expense_table$id == "gross_margin")]
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Rent
-  index <- which(expenses$id == "rent")
+  index <- which(expense_table$id == "rent")
   expense_table$value[index] <- total_rent
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Depreciation
-  index <- which(expenses$id == "depreciation")
+  index <- which(expense_table$id == "depreciation")
   expense_table$value[index] <- total_depreciation
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Interest_Expense
-  index <- which(expenses$id == "interest_expense")
+  index <- which(expense_table$id == "interest_expense")
   expense_table$value[index] <- total_interest
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Total Expense
-  index <- which(expenses$id == "total_expense")
+  index <- which(expense_table$id == "total_expense")
   expense_table$value[index] <- (expense_table$value[which(expense_table$id == "officer_compensation")] +
                                    expense_table$value[which(expense_table$id == "salaries")] +
                                    expense_table$value[which(expense_table$id == "rent")] +
@@ -69,13 +69,13 @@ Expense <- function(total_estimated_revenue,
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Operating Income Loss
-  index <- which(expenses$id == "operating_income_loss")
+  index <- which(expense_table$id == "operating_income_loss")
   expense_table$value[index] <- (expense_table$value[which(expense_table$id == "gross_margin")] -
                                    expense_table$value[which(expense_table$id == "total_expense")])
   expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Pre-tax Profit
-  index <- which(expenses$id == "pre_tax_profit")
+  index <- which(expense_table$id == "pre_tax_profit")
   expense_table$value[index] <- (expense_table$value[which(expense_table$id == "operating_income_loss")] -
                                    expense_table$value[which(expense_table$id == "interest_expense")] +
                                    expense_table$value[which(expense_table$id == "other_income")])
