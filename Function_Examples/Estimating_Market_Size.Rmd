@@ -9,6 +9,7 @@ output: html_document
 
 ## Test Variables
 ```{r}
+library(RuralGrocery)
 # Testing variables for all county cities and non-county cities in the market area
 
 ## County square mileage
@@ -17,24 +18,18 @@ Decatur_SqMiles <- 373.3
 ## County total population
 Decatur_Total_Pop <- 7659
 
-metro_city <- 179
+metro_city <- 150
 
 ## County cities population list
-county_cities <- list(Decatur_City = 175,
-                      Garden_Grove = 174,
-                      Grand_River = 196,
-                      Lamoni = 1969,
-                      Leon = 1822,
-                      Le_Roy = 11,
-                      Pleasanton = 32,
-                      Van_Wert = 178,
-                      Weldon = 136)
+county_cities <- list(Town2 = 200,
+                      Town3 = 300,
+                      Town4 = 700,
+                      Town5 = 150)
 
 ## Non-County cities population list
-non_county_cities <- list(town1 = 254,
-                          town2 = 135)
+non_county_cities <- list(town1 = 250)
 
-county_market_cities <- list(town1 = 576)
+county_market_cities <- list(town1 = 150)
 
 # Shopper Count Percentages
 ## Metro
