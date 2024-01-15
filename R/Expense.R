@@ -21,7 +21,6 @@ Expense <- function(total_estimated_revenue,
                     total_rent,
                     total_interest) {
 
-  browser()
   # Only operate on rows which take percentage values for calculation
   filtered_expense <- expense_table[(expense_table$id %in% c("gross_margin",
                                                              "salaries",
