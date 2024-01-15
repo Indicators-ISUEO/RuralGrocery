@@ -21,9 +21,9 @@ Expense <- function(total_estimated_revenue,
                     total_rent,
                     total_interest) {
 
+  browser()
   # Only operate on rows which take percentage values for calculation
   filtered_expense <- expense_table[(expense_table$id %in% c("gross_margin",
-                                                             "officer_compensation",
                                                              "salaries",
                                                              "other_operating_expense",
                                                              "other_income")), ]
@@ -34,10 +34,13 @@ Expense <- function(total_estimated_revenue,
   filtered_expense$value <- (total_estimated_revenue * filtered_expense$pct)
 
   # Transferring the values of the calculations to expense_table
-  expense_table$value[1:5] <- filtered_expense$value[1:5]
+  expense_table$value[1:4] <- filtered_expense$value[1:4]
 
 
   # Calculate remaining expenses from values in filtered_expense
+  ## Officer Compensation
+  index <- which(expense_table$id == "officer_compensation")
+  expense_table$pct[index] <- ((expense_table$value[index] / total_estimated_revenue) * 100)
 
   ## Cost of Goods
   index <- which(expense_table$id == "cost_of_goods")
