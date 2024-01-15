@@ -146,10 +146,10 @@ interest <- data.frame(
 
 expenses <- data.frame(
   id = c("gross_margin", # Rev * Pct (default = [22, 24, 26, or 28])
-         "officer_compensation",  # Rev * Pct
          "salaries", # Rev * Pct (default = 9)
          "other_operating_expense", # Rev * Pct (default = 10.88)
          "other_income", # Rev * Pct (Default = 1) [this value REDUCES expense]
+         "officer_compensation",  # Default to 40,000 and user can change this value
          
          # HIDE THE TABLE BELOW THIS POINT - USER INPUTS ONLY ABOVE FOR `PCT` COLUMN #
          
@@ -161,8 +161,8 @@ expenses <- data.frame(
          "operating_income_loss", # Gross Margin -  Total Expense
          "pre_tax_profit" # operating income loss - Interest Expense + Other Income
          ),
-  pct = c(22, 4, 9, 10.88, 1, 0, 0, 0, 0, 0, 0, 0),
-  value = c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+  pct = c(22, 9, 10.88, 1, 0, 0, 0, 0, 0, 0, 0, 0),
+  value = c(0, 0, 0, 0, 40000, 0, 0, 0, 0, 0, 0, 0)
 )
 ```
 
